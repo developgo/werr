@@ -30,35 +30,6 @@ func TestWrap(t *testing.T) {
 	})
 }
 
-func TestWrapWithoutStack(t *testing.T) {
-	Convey("it should not wrap nil value", t, func() {
-		err := werr.WrapWithoutStack(nil)
-		So(err, ShouldBeNil)
-	})
-	Convey("it should wrap an error", t, func() {
-		original := errors.New("testing")
-		err := werr.WrapWithoutStack(original)
-		we, ok := err.(*werr.Wrapper)
-		So(ok, ShouldBeTrue)
-		So(we.Original, ShouldEqual, original)
-	})
-	Convey("it should not wrap a Wrapper instance", t, func() {
-		original := errors.New("testing")
-		err := werr.WrapWithoutStack(original)
-		err = werr.WrapWithoutStack(err)
-		we, ok := err.(*werr.Wrapper)
-		So(ok, ShouldBeTrue)
-		So(we.Original, ShouldEqual, original)
-	})
-	Convey("it should not have the stack trace", t, func() {
-		original := errors.New("testing")
-		err := werr.WrapWithoutStack(original)
-		we, ok := err.(*werr.Wrapper)
-		So(ok, ShouldBeTrue)
-		So(we.Stack, ShouldBeNil)
-	})
-}
-
 func TestUnwrap(t *testing.T) {
 	Convey("it should ignore nil value", t, func() {
 		err := werr.Unwrap(nil)
@@ -90,7 +61,7 @@ func TestWrapper(t *testing.T) {
 		So(ok, ShouldBeTrue)
 		log, err := wrapped.Log()
 		So(err, ShouldBeNil)
-		So(log, ShouldContainSubstring, "werr/funcs_test.go:88 testing\ngoroutine")
+		So(log, ShouldContainSubstring, "werr/funcs_test.go:59 testing\ngoroutine")
 	})
 }
 
@@ -112,6 +83,6 @@ func TestVars(t *testing.T) {
 		So(ok, ShouldBeTrue)
 		log, err := wrapped.Log()
 		So(err, ShouldBeNil)
-		So(log, ShouldEndWith, "werr/funcs_test.go@110")
+		So(log, ShouldEndWith, "werr/funcs_test.go@81")
 	})
 }

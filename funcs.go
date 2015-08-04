@@ -32,17 +32,6 @@ func Wrap(err error) error {
 	}
 }
 
-// WrapWithoutStack is the same as calling `Wrap` with `StackArraySize` set
-// to zero. This will not create an stack trace.
-func WrapWithoutStack(err error) error {
-	prev := StackArraySize
-	StackArraySize = 0
-	defer func() {
-		StackArraySize = prev
-	}()
-	return Wrap(err)
-}
-
 // Unwrap returns the original error inside an `*Wrapper` instance.
 // If `err` is `nil` it will return `nil`.
 // If `err` is an instance of `*Wrapper` it will return the value of the
