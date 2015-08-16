@@ -21,7 +21,8 @@ func Wrap(err error) error {
 	_, file, line, _ := runtime.Caller(1)
 	if StackArraySize > 0 {
 		stackData = make([]byte, StackArraySize)
-		runtime.Stack(stackData, false)
+		written := runtime.Stack(stackData, false)
+		stackData = stackData[0:written]
 	}
 
 	return &Wrapper{
