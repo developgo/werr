@@ -3,6 +3,7 @@
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/txgruppi/werr)
 ![Codeship](https://img.shields.io/codeship/563848f0-1cc7-0133-3afb-0ee7adf4cd2d.svg?style=flat-square)
 [![Codecov](https://img.shields.io/codecov/c/github/txgruppi/werr.svg?style=flat-square)](https://codecov.io/github/txgruppi/werr)
+[![Go Report Card](https://img.shields.io/badge/go_report-A+-brightgreen.svg?style=flat-square)](https://goreportcard.com/report/github.com/txgruppi/werr)
 
 Error Wrapper creates an wrapper for the `error` type in Go which captures the File, Line and Stack of where it was called.
 
