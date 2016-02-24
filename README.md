@@ -7,6 +7,10 @@
 
 Error Wrapper creates an wrapper for the `error` type in Go which captures the File, Line and Stack of where it was called.
 
+## Installation
+
+`go get -u github.com/txgruppi/werr`
+
 ## Why?
 
 I don't like to use `panic`.
@@ -52,3 +56,7 @@ github.com/txgruppi/werr.Wrap(0x2208246900, 0x208270300, 0x0, 0x0)
 main.main()
         /Users/txgruppi/code/temp/test.go:13 +0x72
 ```
+
+## License
+
+MIT
