@@ -57,6 +57,14 @@ main.main()
         /Users/txgruppi/code/temp/test.go:13 +0x72
 ```
 
+## Tests
+
+```
+go get -u -t github.com/txgruppi/werr
+cd $GOPATH/src/github.com/txgruppi/werr
+go test ./...
+```
+
 ## License
 
 MIT
